@@ -1,0 +1,4 @@
+int id favoriteFragment 0x7d010000
+int layout fragment_favorite 0x7d020000
+int navigation nav_favorite_graph 0x7d030000
+int string title_feature_favorite 0x7d040000

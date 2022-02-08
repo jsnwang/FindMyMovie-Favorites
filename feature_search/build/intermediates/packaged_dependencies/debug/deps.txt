@@ -1,0 +1,7 @@
+:feature_search::debug
+androidx.exifinterface:exifinterface
+androidx.lifecycle:lifecycle-common-java8
+io.coil-kt:coil
+io.coil-kt:coil-base
+org.jetbrains.kotlin:kotlin-android-extensions-runtime
+org.jetbrains.kotlin:kotlin-parcelize-runtime

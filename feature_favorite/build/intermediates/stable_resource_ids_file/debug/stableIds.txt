@@ -1,0 +1,4 @@
+com.example.findmymovie:string/title_feature_favorite = 0x7d040000
+com.example.findmymovie:navigation/nav_favorite_graph = 0x7d030000
+com.example.findmymovie:layout/fragment_favorite = 0x7d020000
+com.example.findmymovie:id/favoriteFragment = 0x7d010000

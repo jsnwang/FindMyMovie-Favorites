@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/Users/rave34/.gradle/caches/transforms-3/db818fb26f9f1c1a87c8eaab43bd1e62/transformed/coil-base-1.4.0/res/values/values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "49",
+                        "endOffsets": "100"
+                    }
+                },
+                {
+                    "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "3,4,2",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "114,193,57",
+                        "endColumns": "77,79,55",
+                        "endOffsets": "187,268,108"
+                    },
+                    "to": {
+                        "startLines": "3,4,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "105,183,263",
+                        "endColumns": "77,79,55",
+                        "endOffsets": "178,258,314"
+                    }
+                }
+            ]
+        }
+    ]
+}

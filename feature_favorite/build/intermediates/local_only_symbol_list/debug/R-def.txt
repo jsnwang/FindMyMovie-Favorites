@@ -1,0 +1,6 @@
+R_DEF: Internal format may change without notice
+local
+id favoriteFragment
+layout fragment_favorite
+navigation nav_favorite_graph
+string title_feature_favorite

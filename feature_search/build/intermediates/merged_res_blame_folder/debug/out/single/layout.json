@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_media.xml",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/layout/item_media.xml"
+    },
+    {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_search.xml",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/layout/fragment_search.xml"
+    }
+]
