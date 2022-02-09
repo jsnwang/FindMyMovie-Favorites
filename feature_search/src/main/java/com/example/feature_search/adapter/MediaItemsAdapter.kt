@@ -4,16 +4,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.feature_search.adapter.viewholder.MediaItemViewHolder
+import com.example.feature_search.viewmodel.SearchViewModel
 import com.example.omdb.response.MediaItem
 
-class MediaItemsAdapter : ListAdapter<MediaItem, MediaItemViewHolder>(diffUtilItemCallback) {
+class MediaItemsAdapter (val viewModel: SearchViewModel) : ListAdapter<MediaItem, MediaItemViewHolder>(diffUtilItemCallback) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
     ) = MediaItemViewHolder.newInstance(parent)
 
     override fun onBindViewHolder(holder: MediaItemViewHolder, position: Int) {
-        holder.bindMediaItem(getItem(position))
+        holder.bindMediaItem(getItem(position), viewModel)
     }
 
     companion object {

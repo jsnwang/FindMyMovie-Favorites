@@ -13,6 +13,9 @@ interface MediaItemDao {
     @Query("SELECT * FROM media_item")
     fun getAll(): Flow<List<MediaItem>>
 
+    @Query("DELETE FROM media_item")
+    fun nukeTable()
+
     @Query("SELECT * FROM media_item")
     suspend fun getAllFavs(): List<MediaItem>
 

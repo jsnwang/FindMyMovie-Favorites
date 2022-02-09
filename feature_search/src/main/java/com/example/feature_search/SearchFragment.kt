@@ -22,7 +22,7 @@ class SearchFragment : Fragment() {
 
     private val viewModel by viewModels<SearchViewModel>()
 
-    private val mediaItemsAdapter by lazy { MediaItemsAdapter() }
+    private val mediaItemsAdapter by lazy { MediaItemsAdapter(viewModel) }
 
     /**
      * Listener for SearchView

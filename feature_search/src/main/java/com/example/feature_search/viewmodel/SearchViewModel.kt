@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.feature_search.util.ViewState
 import com.example.omdb.OmdbRepo
+import com.example.omdb.local.OmdbDatabase
 import com.example.omdb.response.MediaItem
 import com.example.omdb.response.SearchResponse
 import kotlinx.coroutines.flow.firstOrNull
@@ -13,6 +14,7 @@ import kotlinx.coroutines.launch
 class SearchViewModel(app: Application) : AndroidViewModel(app) {
 
     private val omdbRepo by lazy { OmdbRepo(getApplication()) }
+    val mediaItemDao by lazy { OmdbDatabase.getInstance(app).mediaItemDao() }
 
     private val _viewState = MutableLiveData<ViewState>(ViewState.NoQuery)
     val viewState: LiveData<ViewState> get() = _viewState
@@ -70,6 +72,13 @@ class SearchViewModel(app: Application) : AndroidViewModel(app) {
 
             // Update the ViewState
             _viewState.value = viewState
+        }
+    }
+
+    fun addFav(mediaItem: MediaItem){
+        viewModelScope.launch {
+            mediaItemDao.insert(mediaItem)
+            Log.d("Clicked Image", "Clicked")
         }
     }
 

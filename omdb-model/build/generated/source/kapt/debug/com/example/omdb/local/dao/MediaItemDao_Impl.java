@@ -7,6 +7,7 @@ import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
+import androidx.room.SharedSQLiteStatement;
 import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
@@ -32,6 +33,8 @@ public final class MediaItemDao_Impl implements MediaItemDao {
   private final EntityInsertionAdapter<MediaItem> __insertionAdapterOfMediaItem;
 
   private final EntityDeletionOrUpdateAdapter<MediaItem> __deletionAdapterOfMediaItem;
+
+  private final SharedSQLiteStatement __preparedStmtOfNukeTable;
 
   public MediaItemDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -85,10 +88,17 @@ public final class MediaItemDao_Impl implements MediaItemDao {
         }
       }
     };
+    this.__preparedStmtOfNukeTable = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "DELETE FROM media_item";
+        return _query;
+      }
+    };
   }
 
   @Override
-  public Object insertAll(final MediaItem[] item, final Continuation<? super Unit> continuation) {
+  public Object insertAll(final MediaItem[] item, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
@@ -101,11 +111,11 @@ public final class MediaItemDao_Impl implements MediaItemDao {
           __db.endTransaction();
         }
       }
-    }, continuation);
+    }, arg1);
   }
 
   @Override
-  public Object insert(final MediaItem item, final Continuation<? super Unit> continuation) {
+  public Object insert(final MediaItem item, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
@@ -118,11 +128,11 @@ public final class MediaItemDao_Impl implements MediaItemDao {
           __db.endTransaction();
         }
       }
-    }, continuation);
+    }, arg1);
   }
 
   @Override
-  public Object delete(final MediaItem item, final Continuation<? super Unit> continuation) {
+  public Object delete(final MediaItem item, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
@@ -135,7 +145,21 @@ public final class MediaItemDao_Impl implements MediaItemDao {
           __db.endTransaction();
         }
       }
-    }, continuation);
+    }, arg1);
+  }
+
+  @Override
+  public void nukeTable() {
+    __db.assertNotSuspendingTransaction();
+    final SupportSQLiteStatement _stmt = __preparedStmtOfNukeTable.acquire();
+    __db.beginTransaction();
+    try {
+      _stmt.executeUpdateDelete();
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+      __preparedStmtOfNukeTable.release(_stmt);
+    }
   }
 
   @Override
@@ -202,7 +226,7 @@ public final class MediaItemDao_Impl implements MediaItemDao {
   }
 
   @Override
-  public Object getAllFavs(final Continuation<? super List<MediaItem>> continuation) {
+  public Object getAllFavs(final Continuation<? super List<MediaItem>> arg0) {
     final String _sql = "SELECT * FROM media_item";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
@@ -258,7 +282,7 @@ public final class MediaItemDao_Impl implements MediaItemDao {
           _statement.release();
         }
       }
-    }, continuation);
+    }, arg0);
   }
 
   public static List<Class<?>> getRequiredConverters() {

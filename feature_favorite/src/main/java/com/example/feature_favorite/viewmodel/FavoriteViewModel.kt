@@ -25,19 +25,25 @@ class FavoriteViewModel (app: Application) : AndroidViewModel(app) {
 
     private val omdbRepo by lazy { OmdbRepo(getApplication()) }
     //private val favoriteItemsAdapter by lazy { FavoriteItemsAdapter() }
-    private val mediaItemDao by lazy { OmdbDatabase.getInstance(app).mediaItemDao() }
+    val mediaItemDao by lazy { OmdbDatabase.getInstance(app).mediaItemDao() }
 
     fun toFavs(){
         viewModelScope.launch {
             omdbRepo.mediaItems.firstOrNull()?.let { mediaItems ->
                 val viewState = ViewState.Favorites(mediaItems)
-
                 _viewState.value = viewState
-
-
             }
         }
     }
+
+    fun removeFav(mediaItem: MediaItem){
+        viewModelScope.launch {
+            mediaItemDao.delete(mediaItem)
+
+        }
+    }
+
+
 }
 
 

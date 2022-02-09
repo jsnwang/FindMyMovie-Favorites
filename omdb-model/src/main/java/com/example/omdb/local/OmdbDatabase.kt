@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.omdb.local.dao.FavItemDao
 import com.example.omdb.local.dao.MediaItemDao
 import com.example.omdb.response.MediaItem
 
@@ -12,7 +11,6 @@ import com.example.omdb.response.MediaItem
 abstract class OmdbDatabase : RoomDatabase() {
 
     abstract fun mediaItemDao(): MediaItemDao
-    abstract fun favItemDao(): FavItemDao
 
     companion object {
         private var INSTANCE: OmdbDatabase? = null

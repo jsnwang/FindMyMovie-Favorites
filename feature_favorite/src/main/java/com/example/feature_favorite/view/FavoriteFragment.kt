@@ -46,12 +46,11 @@ class FavoriteFragment : Fragment() {
     private fun initObservers() = with(viewModel){
         viewState.observe(viewLifecycleOwner) { state ->
             if (state is ViewState.Favorites) updateFavs(state.mediaItems)
-
         }
     }
 
     fun updateFavs(items:List<MediaItem>) = with(binding) {
-        rvResults.adapter = FavoriteItemsAdapter(items)
+        rvResults.adapter = FavoriteItemsAdapter(items, viewModel)
     }
 
     override fun onDestroyView() {
