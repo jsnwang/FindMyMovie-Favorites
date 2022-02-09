@@ -1,31 +1,52 @@
 package com.example.feature_favorite.adapter
 
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
-import com.example.feature_favorite.adapter.viewholder.FavoriteItemViewHolder
 import com.example.omdb.response.MediaItem
+import android.view.LayoutInflater
+import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import coil.size.Scale
+import coil.transform.RoundedCornersTransformation
+import com.example.feature_favorite.databinding.ItemMediaBinding
+import com.example.findmymovie.R
 
-class FavoriteItemsAdapter : ListAdapter<MediaItem, FavoriteItemViewHolder>(diffUtilItemCallback) {
+class FavoriteItemsAdapter (private val favItems : List<MediaItem>): RecyclerView.Adapter<FavoriteItemsAdapter.FavoriteItemViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
     ) = FavoriteItemViewHolder.newInstance(parent)
 
     override fun onBindViewHolder(holder: FavoriteItemViewHolder, position: Int) {
-        holder.bindMediaItem(getItem(position))
+        holder.bindMediaItem(favItems[position])
     }
 
-    companion object {
+    override fun getItemCount(): Int {
+        return favItems.size
+    }
 
-        private val diffUtilItemCallback = object : DiffUtil.ItemCallback<MediaItem>() {
-            override fun areItemsTheSame(
-                oldItem: MediaItem, newItem: MediaItem
-            ) = oldItem.imdbID == newItem.imdbID
+    class FavoriteItemViewHolder(
+        private val binding: ItemMediaBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-            override fun areContentsTheSame(
-                oldItem: MediaItem, newItem: MediaItem
-            ) = oldItem == newItem
+        fun bindMediaItem(mediaItem: MediaItem) {
+            binding.tvTitle.text = mediaItem.title
+            binding.ivPoster.load(mediaItem.poster) {
+                scale(Scale.FIT)
+                crossfade(true)
+                crossfade(500)
+                placeholder(R.drawable.no_image)
+                transformations(RoundedCornersTransformation(25f))
+                build()
+            }
+
+            binding.ivPoster.setOnClickListener(){
+
+            }
+        }
+        companion object {
+            fun newInstance(parent: ViewGroup) = ItemMediaBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            ).let { binding -> FavoriteItemViewHolder(binding) }
         }
     }
 

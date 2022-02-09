@@ -51,6 +51,11 @@ main = [
     "androidx-nav-ui",
     "google-material",
     "instacart-coil",
+    "androidx-room",
+    "androidx-room-ktx",
+    "squareup-retrofit",
+    "squareup-retrofit-gson",
+    "google-gson",
 ]
 
 feature-search = [

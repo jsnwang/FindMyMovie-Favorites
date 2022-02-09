@@ -1,6 +1,7 @@
 package com.example.feature_search.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.feature_search.util.ViewState
 import com.example.omdb.OmdbRepo
@@ -19,6 +20,7 @@ class SearchViewModel(app: Application) : AndroidViewModel(app) {
     init {
         viewModelScope.launch {
             omdbRepo.mediaItems.firstOrNull()?.let { mediaItems ->
+                Log.d("searches", mediaItems.toString())
                 _viewState.value = ViewState.Success(mediaItems)
             }
         }

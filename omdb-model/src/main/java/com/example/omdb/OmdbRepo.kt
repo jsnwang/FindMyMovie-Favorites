@@ -18,6 +18,7 @@ class OmdbRepo(app: Application) {
 
     val mediaItems: Flow<List<MediaItem>> = mediaItemDao.getAll()
 
+
     /**
      * suspend -> makes this a coroutine function so we can move its operations to another thread
      * withContext -> part of coroutines we use this to change the Thread
@@ -31,10 +32,11 @@ class OmdbRepo(app: Application) {
         return@withContext try {
             val response = OmdbService.instance.searchByQuery(query)
             val searchResponse = response.body()!!
-//            mediaItemDao.insertAll(*searchResponse.search.toTypedArray())
+            //mediaItemDao.insertAll(*searchResponse.search.toTypedArray())
             Result.success(searchResponse) // return success if there's a body(SearchResponse)
         } catch (ex: Exception) {
             Result.failure(ex) // return failure, means call failed or body was null
         }
     }
+
 }

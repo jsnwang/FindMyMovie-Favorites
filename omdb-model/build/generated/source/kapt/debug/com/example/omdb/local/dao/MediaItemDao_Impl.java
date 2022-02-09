@@ -1,6 +1,7 @@
 package com.example.omdb.local.dao;
 
 import android.database.Cursor;
+import android.os.CancellationSignal;
 import androidx.room.CoroutinesRoom;
 import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
@@ -198,6 +199,66 @@ public final class MediaItemDao_Impl implements MediaItemDao {
         _statement.release();
       }
     });
+  }
+
+  @Override
+  public Object getAllFavs(final Continuation<? super List<MediaItem>> continuation) {
+    final String _sql = "SELECT * FROM media_item";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<MediaItem>>() {
+      @Override
+      public List<MediaItem> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "title");
+          final int _cursorIndexOfYear = CursorUtil.getColumnIndexOrThrow(_cursor, "year");
+          final int _cursorIndexOfImdbID = CursorUtil.getColumnIndexOrThrow(_cursor, "imdb_id");
+          final int _cursorIndexOfType = CursorUtil.getColumnIndexOrThrow(_cursor, "type");
+          final int _cursorIndexOfPoster = CursorUtil.getColumnIndexOrThrow(_cursor, "poster");
+          final List<MediaItem> _result = new ArrayList<MediaItem>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final MediaItem _item;
+            final String _tmpTitle;
+            if (_cursor.isNull(_cursorIndexOfTitle)) {
+              _tmpTitle = null;
+            } else {
+              _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
+            }
+            final String _tmpYear;
+            if (_cursor.isNull(_cursorIndexOfYear)) {
+              _tmpYear = null;
+            } else {
+              _tmpYear = _cursor.getString(_cursorIndexOfYear);
+            }
+            final String _tmpImdbID;
+            if (_cursor.isNull(_cursorIndexOfImdbID)) {
+              _tmpImdbID = null;
+            } else {
+              _tmpImdbID = _cursor.getString(_cursorIndexOfImdbID);
+            }
+            final String _tmpType;
+            if (_cursor.isNull(_cursorIndexOfType)) {
+              _tmpType = null;
+            } else {
+              _tmpType = _cursor.getString(_cursorIndexOfType);
+            }
+            final String _tmpPoster;
+            if (_cursor.isNull(_cursorIndexOfPoster)) {
+              _tmpPoster = null;
+            } else {
+              _tmpPoster = _cursor.getString(_cursorIndexOfPoster);
+            }
+            _item = new MediaItem(_tmpTitle,_tmpYear,_tmpImdbID,_tmpType,_tmpPoster);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, continuation);
   }
 
   public static List<Class<?>> getRequiredConverters() {
