@@ -7,6 +7,7 @@ sealed class ViewState {
     object Loading : ViewState()
     data class Success(val mediaItems: List<MediaItem>) : ViewState()
 
+    data class Update(val mediaItem: MediaItem) : ViewState()
     sealed class Failure : ViewState() {
         data class WhileFetching(val exception: String) : Failure()
         object InvalidQuery : Failure()

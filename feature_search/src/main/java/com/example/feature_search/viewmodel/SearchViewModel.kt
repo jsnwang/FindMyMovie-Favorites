@@ -77,6 +77,7 @@ class SearchViewModel(app: Application) : AndroidViewModel(app) {
 
     fun editFav(mediaItem: MediaItem) {
         viewModelScope.launch {
+
             if (mediaItem.faved) {
                 mediaItem.faved = false
                 mediaItemDao.delete(mediaItem)
@@ -85,6 +86,9 @@ class SearchViewModel(app: Application) : AndroidViewModel(app) {
                 mediaItem.faved = true
                 mediaItemDao.insert(mediaItem)
             }
+            val viewState = ViewState.Update(mediaItem)
+
+            _viewState.value = viewState
 
         }
     }

@@ -46,6 +46,8 @@ class FavoriteViewModel (app: Application) : AndroidViewModel(app) {
                 mediaItem.faved = true
                 mediaItemDao.insert(mediaItem)
             }
+            val viewState = ViewState.Update(mediaItem)
+            _viewState.value = viewState
 
         }
     }

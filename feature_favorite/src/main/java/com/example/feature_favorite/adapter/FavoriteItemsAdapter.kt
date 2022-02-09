@@ -49,6 +49,7 @@ class FavoriteItemsAdapter (private val favItems : List<MediaItem>, val viewMode
                 viewModel.editFav(mediaItem)
             }
 
+
         }
         companion object {
             fun newInstance(parent: ViewGroup) = ItemMediaBinding.inflate(
