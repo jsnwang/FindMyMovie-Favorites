@@ -46,7 +46,7 @@ class FavoriteItemsAdapter (private val favItems : List<MediaItem>, val viewMode
                 build()
             }
             binding.ivPoster.setOnClickListener{
-                viewModel.removeFav(mediaItem)
+                viewModel.editFav(mediaItem)
             }
 
         }

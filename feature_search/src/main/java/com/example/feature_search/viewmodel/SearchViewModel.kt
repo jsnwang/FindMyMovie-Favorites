@@ -75,11 +75,18 @@ class SearchViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun addFav(mediaItem: MediaItem){
+    fun editFav(mediaItem: MediaItem) {
         viewModelScope.launch {
-            mediaItemDao.insert(mediaItem)
-            Log.d("Clicked Image", "Clicked")
+            if (mediaItem.faved) {
+                mediaItem.faved = false
+                mediaItemDao.delete(mediaItem)
+            }
+            else{
+                mediaItem.faved = true
+                mediaItemDao.insert(mediaItem)
+            }
+
         }
     }
-
 }
+

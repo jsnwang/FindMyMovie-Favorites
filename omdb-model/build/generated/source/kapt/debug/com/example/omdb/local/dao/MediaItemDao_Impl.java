@@ -41,7 +41,7 @@ public final class MediaItemDao_Impl implements MediaItemDao {
     this.__insertionAdapterOfMediaItem = new EntityInsertionAdapter<MediaItem>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `media_item` (`title`,`year`,`imdb_id`,`type`,`poster`) VALUES (?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `media_item` (`title`,`year`,`imdb_id`,`type`,`poster`,`faved`) VALUES (?,?,?,?,?,?)";
       }
 
       @Override
@@ -71,6 +71,8 @@ public final class MediaItemDao_Impl implements MediaItemDao {
         } else {
           stmt.bindString(5, value.getPoster());
         }
+        final int _tmp = value.getFaved() ? 1 : 0;
+        stmt.bindLong(6, _tmp);
       }
     };
     this.__deletionAdapterOfMediaItem = new EntityDeletionOrUpdateAdapter<MediaItem>(__db) {
@@ -176,6 +178,7 @@ public final class MediaItemDao_Impl implements MediaItemDao {
           final int _cursorIndexOfImdbID = CursorUtil.getColumnIndexOrThrow(_cursor, "imdb_id");
           final int _cursorIndexOfType = CursorUtil.getColumnIndexOrThrow(_cursor, "type");
           final int _cursorIndexOfPoster = CursorUtil.getColumnIndexOrThrow(_cursor, "poster");
+          final int _cursorIndexOfFaved = CursorUtil.getColumnIndexOrThrow(_cursor, "faved");
           final List<MediaItem> _result = new ArrayList<MediaItem>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final MediaItem _item;
@@ -209,7 +212,11 @@ public final class MediaItemDao_Impl implements MediaItemDao {
             } else {
               _tmpPoster = _cursor.getString(_cursorIndexOfPoster);
             }
-            _item = new MediaItem(_tmpTitle,_tmpYear,_tmpImdbID,_tmpType,_tmpPoster);
+            final boolean _tmpFaved;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfFaved);
+            _tmpFaved = _tmp != 0;
+            _item = new MediaItem(_tmpTitle,_tmpYear,_tmpImdbID,_tmpType,_tmpPoster,_tmpFaved);
             _result.add(_item);
           }
           return _result;
@@ -240,6 +247,7 @@ public final class MediaItemDao_Impl implements MediaItemDao {
           final int _cursorIndexOfImdbID = CursorUtil.getColumnIndexOrThrow(_cursor, "imdb_id");
           final int _cursorIndexOfType = CursorUtil.getColumnIndexOrThrow(_cursor, "type");
           final int _cursorIndexOfPoster = CursorUtil.getColumnIndexOrThrow(_cursor, "poster");
+          final int _cursorIndexOfFaved = CursorUtil.getColumnIndexOrThrow(_cursor, "faved");
           final List<MediaItem> _result = new ArrayList<MediaItem>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final MediaItem _item;
@@ -273,7 +281,11 @@ public final class MediaItemDao_Impl implements MediaItemDao {
             } else {
               _tmpPoster = _cursor.getString(_cursorIndexOfPoster);
             }
-            _item = new MediaItem(_tmpTitle,_tmpYear,_tmpImdbID,_tmpType,_tmpPoster);
+            final boolean _tmpFaved;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfFaved);
+            _tmpFaved = _tmp != 0;
+            _item = new MediaItem(_tmpTitle,_tmpYear,_tmpImdbID,_tmpType,_tmpPoster,_tmpFaved);
             _result.add(_item);
           }
           return _result;

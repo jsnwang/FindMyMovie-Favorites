@@ -39,9 +39,9 @@ public final class OmdbDatabase_Impl extends OmdbDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `media_item` (`title` TEXT NOT NULL, `year` TEXT NOT NULL, `imdb_id` TEXT NOT NULL, `type` TEXT NOT NULL, `poster` TEXT NOT NULL, PRIMARY KEY(`imdb_id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `media_item` (`title` TEXT NOT NULL, `year` TEXT NOT NULL, `imdb_id` TEXT NOT NULL, `type` TEXT NOT NULL, `poster` TEXT NOT NULL, `faved` INTEGER NOT NULL, PRIMARY KEY(`imdb_id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8898ae5961f0757c7ee533aa81e687a4')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd54e9205fda29b353768cdf3a1378bc6')");
       }
 
       @Override
@@ -85,12 +85,13 @@ public final class OmdbDatabase_Impl extends OmdbDatabase {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsMediaItem = new HashMap<String, TableInfo.Column>(5);
+        final HashMap<String, TableInfo.Column> _columnsMediaItem = new HashMap<String, TableInfo.Column>(6);
         _columnsMediaItem.put("title", new TableInfo.Column("title", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMediaItem.put("year", new TableInfo.Column("year", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMediaItem.put("imdb_id", new TableInfo.Column("imdb_id", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMediaItem.put("type", new TableInfo.Column("type", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMediaItem.put("poster", new TableInfo.Column("poster", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsMediaItem.put("faved", new TableInfo.Column("faved", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysMediaItem = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesMediaItem = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoMediaItem = new TableInfo("media_item", _columnsMediaItem, _foreignKeysMediaItem, _indicesMediaItem);
@@ -102,7 +103,7 @@ public final class OmdbDatabase_Impl extends OmdbDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "8898ae5961f0757c7ee533aa81e687a4", "b782caeb72ce7139350e2462cf8593ff");
+    }, "d54e9205fda29b353768cdf3a1378bc6", "2680033515c9932b753300b9a1643638");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

@@ -36,9 +36,16 @@ class FavoriteViewModel (app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun removeFav(mediaItem: MediaItem){
+    fun editFav(mediaItem: MediaItem){
         viewModelScope.launch {
-            mediaItemDao.delete(mediaItem)
+            if(mediaItem.faved) {
+                mediaItem.faved = false
+                mediaItemDao.delete(mediaItem)
+            }
+            else {
+                mediaItem.faved = true
+                mediaItemDao.insert(mediaItem)
+            }
 
         }
     }

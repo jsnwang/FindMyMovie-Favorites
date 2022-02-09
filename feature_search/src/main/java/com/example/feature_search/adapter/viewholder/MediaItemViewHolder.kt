@@ -29,7 +29,7 @@ class MediaItemViewHolder(
         }
 
         binding.ivPoster.setOnClickListener(){
-            viewModel.addFav(mediaItem)
+            viewModel.editFav(mediaItem)
         }
     }
 

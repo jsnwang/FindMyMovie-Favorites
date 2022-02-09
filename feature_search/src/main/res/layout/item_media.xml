@@ -13,6 +13,12 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:background="?attr/colorPrimary" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/iv_poster"
+        app:layout_constraintStart_toStartOf="@+id/iv_poster"
+        android:src="@drawable/ic_favorite_border"/>
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"

@@ -9,6 +9,6 @@
     <item
         android:id="@+id/favoriteGraph"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_search"
-        android:title="@string/favorite" />
+        android:icon="@drawable/ic_favorite_border"
+        android:title="@string/favorites" />
 </menu>

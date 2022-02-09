@@ -17,5 +17,7 @@ data class MediaItem(
     @SerializedName("Type")
     val type: String,
     @SerializedName("Poster")
-    val poster: String
+    val poster: String,
+
+    var faved: Boolean = false
 )
