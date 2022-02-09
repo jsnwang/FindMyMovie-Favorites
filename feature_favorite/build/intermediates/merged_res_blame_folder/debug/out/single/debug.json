@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_favorite/build/intermediates/merged_res/debug/layout_item_media.xml.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_favorite/src/main/res/layout/item_media.xml"
+    },
+    {
         "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_favorite/build/intermediates/merged_res/debug/layout_fragment_favorite.xml.flat",
         "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_favorite/src/main/res/layout/fragment_favorite.xml"
     },

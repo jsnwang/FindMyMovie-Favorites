@@ -50,11 +50,11 @@ main = [
     "androidx-nav-frag",
     "androidx-nav-ui",
     "google-material",
+    "instacart-coil",
 ]
 
 feature-search = [
     "androidx-viewpager",
-    "instacart-coil",
 ]
 
 feature-favorite = [

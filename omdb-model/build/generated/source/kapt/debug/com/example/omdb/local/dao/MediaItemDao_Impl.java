@@ -87,13 +87,13 @@ public final class MediaItemDao_Impl implements MediaItemDao {
   }
 
   @Override
-  public Object insertAll(final MediaItem[] users, final Continuation<? super Unit> continuation) {
+  public Object insertAll(final MediaItem[] item, final Continuation<? super Unit> continuation) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
         __db.beginTransaction();
         try {
-          __insertionAdapterOfMediaItem.insert(users);
+          __insertionAdapterOfMediaItem.insert(item);
           __db.setTransactionSuccessful();
           return Unit.INSTANCE;
         } finally {
@@ -104,13 +104,30 @@ public final class MediaItemDao_Impl implements MediaItemDao {
   }
 
   @Override
-  public Object delete(final MediaItem user, final Continuation<? super Unit> continuation) {
+  public Object insert(final MediaItem item, final Continuation<? super Unit> continuation) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
         __db.beginTransaction();
         try {
-          __deletionAdapterOfMediaItem.handle(user);
+          __insertionAdapterOfMediaItem.insert(item);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, continuation);
+  }
+
+  @Override
+  public Object delete(final MediaItem item, final Continuation<? super Unit> continuation) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __deletionAdapterOfMediaItem.handle(item);
           __db.setTransactionSuccessful();
           return Unit.INSTANCE;
         } finally {

@@ -1,6 +1,12 @@
 R_DEF: Internal format may change without notice
 local
 id favoriteFragment
+id gl_end
+id gl_start
+id iv_poster
+id rv_results
+id tv_title
 layout fragment_favorite
+layout item_media
 navigation nav_favorite_graph
 string title_feature_favorite

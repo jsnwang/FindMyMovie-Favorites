@@ -7,17 +7,34 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.Guideline;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.feature_favorite.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentFavoriteBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
 
-  private FragmentFavoriteBinding(@NonNull ConstraintLayout rootView) {
+  @NonNull
+  public final Guideline glEnd;
+
+  @NonNull
+  public final Guideline glStart;
+
+  @NonNull
+  public final RecyclerView rvResults;
+
+  private FragmentFavoriteBinding(@NonNull ConstraintLayout rootView, @NonNull Guideline glEnd,
+      @NonNull Guideline glStart, @NonNull RecyclerView rvResults) {
     this.rootView = rootView;
+    this.glEnd = glEnd;
+    this.glStart = glStart;
+    this.rvResults = rvResults;
   }
 
   @Override
@@ -43,10 +60,31 @@ public final class FragmentFavoriteBinding implements ViewBinding {
 
   @NonNull
   public static FragmentFavoriteBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.gl_end;
+      Guideline glEnd = ViewBindings.findChildViewById(rootView, id);
+      if (glEnd == null) {
+        break missingId;
+      }
 
-    return new FragmentFavoriteBinding((ConstraintLayout) rootView);
+      id = R.id.gl_start;
+      Guideline glStart = ViewBindings.findChildViewById(rootView, id);
+      if (glStart == null) {
+        break missingId;
+      }
+
+      id = R.id.rv_results;
+      RecyclerView rvResults = ViewBindings.findChildViewById(rootView, id);
+      if (rvResults == null) {
+        break missingId;
+      }
+
+      return new FragmentFavoriteBinding((ConstraintLayout) rootView, glEnd, glStart, rvResults);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

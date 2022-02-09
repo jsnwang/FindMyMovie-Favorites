@@ -31,7 +31,7 @@ class OmdbRepo(app: Application) {
         return@withContext try {
             val response = OmdbService.instance.searchByQuery(query)
             val searchResponse = response.body()!!
-            mediaItemDao.insertAll(*searchResponse.search.toTypedArray())
+//            mediaItemDao.insertAll(*searchResponse.search.toTypedArray())
             Result.success(searchResponse) // return success if there's a body(SearchResponse)
         } catch (ex: Exception) {
             Result.failure(ex) // return failure, means call failed or body was null

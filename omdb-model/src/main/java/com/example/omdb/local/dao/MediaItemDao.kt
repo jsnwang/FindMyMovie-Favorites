@@ -14,8 +14,11 @@ interface MediaItemDao {
     fun getAll(): Flow<List<MediaItem>>
 
     @Insert
-    suspend fun insertAll(vararg users: MediaItem)
+    suspend fun insertAll(vararg item: MediaItem)
+
+    @Insert
+    suspend fun insert(item: MediaItem)
 
     @Delete
-    suspend fun delete(user: MediaItem)
+    suspend fun delete(item: MediaItem)
 }
