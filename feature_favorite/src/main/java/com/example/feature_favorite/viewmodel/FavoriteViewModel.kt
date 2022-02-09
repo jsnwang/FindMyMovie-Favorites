@@ -1,4 +1,8 @@
 package com.example.feature_favorite.viewmodel
 
-class FavoriteViewModel {
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+
+class FavoriteViewModel (app: Application) : AndroidViewModel(app){
+
 }
