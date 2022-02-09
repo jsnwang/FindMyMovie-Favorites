@@ -13,6 +13,18 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:background="?attr/colorPrimary" />
 
+    <ImageView
+        android:id="@+id/heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/iv_poster"
+        app:layout_constraintStart_toStartOf="@+id/iv_poster"
+        android:src="@drawable/ic_favorite_filled_red"
+        android:visibility="invisible"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_centerInParent="true"/>
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"

@@ -1,8 +1,10 @@
 R_DEF: Internal format may change without notice
 local
+drawable ic_favorite_filled_red
 id favoriteFragment
 id gl_end
 id gl_start
+id heart
 id iv_poster
 id rv_results
 id tv_title

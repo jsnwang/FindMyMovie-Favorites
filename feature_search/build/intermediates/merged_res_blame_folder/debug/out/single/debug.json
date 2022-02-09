@@ -4,12 +4,56 @@
         "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/navigation/nav_search_graph.xml"
     },
     {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable-xxhdpi_ic_favorite_filled_red.png.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/drawable-xxhdpi/ic_favorite_filled_red.png"
+    },
+    {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable-xhdpi_ic_favorite_filled_red.png.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/drawable-xhdpi/ic_favorite_filled_red.png"
+    },
+    {
         "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/layout_fragment_search.xml.flat",
         "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/layout/fragment_search.xml"
     },
     {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable-anydpi_ic_favorite_border.xml.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/drawable-anydpi/ic_favorite_border.xml"
+    },
+    {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable-mdpi_ic_favorite_border.png.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/drawable-mdpi/ic_favorite_border.png"
+    },
+    {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable-anydpi-v24_ic_favorite_filled_red.xml.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_favorite_filled_red.xml"
+    },
+    {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable-mdpi_ic_favorite_filled_red.png.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/drawable-mdpi/ic_favorite_filled_red.png"
+    },
+    {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable-xxxhdpi_ic_favorite_filled_red.png.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_favorite_filled_red.png"
+    },
+    {
         "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/layout_item_media.xml.flat",
         "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/layout/item_media.xml"
+    },
+    {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable-hdpi_ic_favorite_border.png.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/drawable-hdpi/ic_favorite_border.png"
+    },
+    {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable-ldpi_ic_favorite_filled_red.png.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/generated/res/pngs/debug/drawable-ldpi/ic_favorite_filled_red.png"
+    },
+    {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable-xxhdpi_ic_favorite_border.png.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/drawable-xxhdpi/ic_favorite_border.png"
+    },
+    {
+        "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable-hdpi_ic_favorite_filled_red.png.flat",
+        "source": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/src/main/res/drawable-hdpi/ic_favorite_filled_red.png"
     },
     {
         "merged": "/Users/rave34/AndroidStudioProjects/FindMyMovie/feature_search/build/intermediates/merged_res/debug/drawable_ic_baseline_explore_24.xml.flat",

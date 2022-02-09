@@ -4,6 +4,7 @@ package com.example.feature_search.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -21,14 +22,18 @@ public final class ItemMediaBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ImageView heart;
+
+  @NonNull
   public final ShapeableImageView ivPoster;
 
   @NonNull
   public final MaterialTextView tvTitle;
 
-  private ItemMediaBinding(@NonNull ConstraintLayout rootView, @NonNull ShapeableImageView ivPoster,
-      @NonNull MaterialTextView tvTitle) {
+  private ItemMediaBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView heart,
+      @NonNull ShapeableImageView ivPoster, @NonNull MaterialTextView tvTitle) {
     this.rootView = rootView;
+    this.heart = heart;
     this.ivPoster = ivPoster;
     this.tvTitle = tvTitle;
   }
@@ -60,6 +65,12 @@ public final class ItemMediaBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.heart;
+      ImageView heart = ViewBindings.findChildViewById(rootView, id);
+      if (heart == null) {
+        break missingId;
+      }
+
       id = R.id.iv_poster;
       ShapeableImageView ivPoster = ViewBindings.findChildViewById(rootView, id);
       if (ivPoster == null) {
@@ -72,7 +83,7 @@ public final class ItemMediaBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemMediaBinding((ConstraintLayout) rootView, ivPoster, tvTitle);
+      return new ItemMediaBinding((ConstraintLayout) rootView, heart, ivPoster, tvTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
